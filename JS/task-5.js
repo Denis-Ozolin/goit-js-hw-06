@@ -92,7 +92,7 @@ const getUserWithEmail = (users, email) => {
     // const userObj = users.find(user => user.email === email);
     // return userObj.name;
 
-    return users.find(user => user.email === email).name;
+    return users.find(user => user.email === email);
 };
 
 
