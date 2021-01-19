@@ -1,4 +1,4 @@
-const users = [
+export default [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
     name: 'Moore Hensley',
@@ -84,16 +84,3 @@ const users = [
     age: 39,
   },
 ];
-
-// Получить массив пользователей попадающих
-// в возрастную категорию от min до max лет(поле age).
-
-const getUsersWithAge = (users, min, max) => users.filter(user =>
-  user.age >= min && user.age <= max);
-
-console.log(getUsersWithAge(users, 20, 30));
-// [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
-
-console.log(getUsersWithAge(users, 30, 40));
-// [объект Moore Hensley, объект Sharlene Bush, 
-// объект Blackburn Dotson, объект Sheree Anthony]
