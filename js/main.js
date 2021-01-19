@@ -100,18 +100,29 @@ console.log(getUsersWithGender(users, 'male'));
     // при этом не должно быть повторяющихся умений и
     // они должны быть отсортированы в алфавитном порядке.
 
-    // РЕШЕНИЕ 1
+    // ПОДСКАЖИТЕ ПОЖАЛУЙСТА, КАКОЕ РЕШЕНИЕ САМОЕ НОРМАЛЬНО >>>>
+
+// РЕШЕНИЕ 1
+    // const getSortedUniqueSkills = users => users
+    // .flatMap((user) => user.skills)
+    // .reduce((acc, skill) => {
+    //     if (!acc.includes(skill)) {
+    //     acc.push(skill);
+    //     }
+    //     return acc;
+    // }, [])
+    // .sort();
+
+// РЕШЕНИЕ 2
     const getSortedUniqueSkills = users => users
-    .flatMap((user) => user.skills)
-    .reduce((acc, skill) => {
-        if (!acc.includes(skill)) {
-        acc.push(skill);
-        }
+    .reduce((acc, user) => {
+        acc.push(...user.skills);
         return acc;
     }, [])
+    .filter((skill, index, array) => array.indexOf(skill) === index)
     .sort();
 
-    // РЕШЕНИЕ 2
+// РЕШЕНИЕ 3
     // const getSortedUniqueSkills = users => users
     //   .reduce((acc, user) => {
     //     const skillsArray = [...user.skills];
